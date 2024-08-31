@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendPageController;
-
+use App\Http\Controllers\RegistrationLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +20,4 @@ Route::get('/contact',[FrontendPageController::class,'Contact'] )->name('contact
 Route::get('/user-login',[FrontendPageController::class,'Login'] )->name('user.login');
 Route::get('/user-registration',[FrontendPageController::class,'Registration'] )->name('user.registration');
 Route::get('/forget-pass',[FrontendPageController::class,'ForgetPass'] )->name('forget.pass');
+Route::post('/save-user',[RegistrationLoginController::class,'UserAdminRegistration'])->name('save.user');

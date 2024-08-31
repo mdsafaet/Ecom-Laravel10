@@ -6,7 +6,25 @@
 <div class="bg-gray-100 h-screen flex justify-center items-center">
     <div class="max-w-sm w-full bg-white p-8 rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
-        <form>
+
+        @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+        <form >
+
             <div class="mb-4">
                 <label for="email" class="block text-gray-700">Email</label>
                 <input type="email" id="email" placeholder="email@example.com" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500">
