@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontendPageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,24 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.page.index');
-})->name('home');
-
-
-Route::get('/contact', function () {
-    return view('frontend.page.contact');
-})->name('contact');
-
-
-Route::get('/user-login', function () {
-    return view('frontend.page.login');
-})->name('user.login');
-
-Route::get('/user-registration', function () {
-    return view('frontend.page.registration');
-})->name('user.registration');
-
-Route::get('/forget-pass', function () {
-    return view('frontend.page.forget-pass');
-})->name('forget.pass');
+Route::get('/',[FrontendPageController::class,'Home'])->name('home');
+Route::get('/contact',[FrontendPageController::class,'Contact'] )->name('contact');
+Route::get('/user-login',[FrontendPageController::class,'Login'] )->name('user.login');
+Route::get('/user-registration',[FrontendPageController::class,'Registration'] )->name('user.registration');
+Route::get('/forget-pass',[FrontendPageController::class,'ForgetPass'] )->name('forget.pass');
