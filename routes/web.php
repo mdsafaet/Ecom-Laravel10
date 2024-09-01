@@ -20,4 +20,14 @@ Route::get('/contact',[FrontendPageController::class,'Contact'] )->name('contact
 Route::get('/user-login',[FrontendPageController::class,'Login'] )->name('user.login');
 Route::get('/user-registration',[FrontendPageController::class,'Registration'] )->name('user.registration');
 Route::get('/forget-pass',[FrontendPageController::class,'ForgetPass'] )->name('forget.pass');
+
 Route::post('/save-user',[RegistrationLoginController::class,'UserAdminRegistration'])->name('save.user');
+Route::get('/validate-user',[RegistrationLoginController::class,'LoginValidate'])->name('validate.user');
+
+Route::get('/user-dashboar',function(){
+    echo "Make user dashboard";
+})->name('user.dashboard');
+
+Route::get('/admin-dashboar',function(){
+    echo "Make admin dashboard";
+})->name('admin.dashboard');
